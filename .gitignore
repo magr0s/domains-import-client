@@ -31,3 +31,7 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+# Lock files
+*.lock
+*-lock.json
