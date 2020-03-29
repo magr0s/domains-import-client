@@ -45,7 +45,13 @@ export default {
                 on: {
                   click: () => (this.settingsDrawer = !this.settingsDrawer)
                 }
-              }
+              },
+              [
+                h(
+                  'QTooltip',
+                  this.$t('tooltips.settings')
+                )
+              ]
             )
           ]
         )
