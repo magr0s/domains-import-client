@@ -1,7 +1,7 @@
-// This is just an example,
-// so you can safely delete all default props below
+import labels from './labels.json'
+import tooltips from './tooltips.json'
 
 export default {
-  failed: 'Action failed',
-  success: 'Action was successful'
+  labels,
+  tooltips
 }

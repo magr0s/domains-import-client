@@ -1,13 +1,15 @@
 <script>
 import BaseLayout from './BaseLayout'
 import PageFooter from 'components/PageFooter'
+import SettingsDrawer from 'components/SettingsDrawer'
 
 export default {
   name: 'MainLayout',
 
   components: {
     BaseLayout,
-    PageFooter
+    PageFooter,
+    SettingsDrawer
   },
 
   render (h) {
@@ -19,6 +21,10 @@ export default {
           {
             slot: 'footer'
           }
+        ),
+
+        h(
+          'SettingsDrawer'
         )
       ]
     )
