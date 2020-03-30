@@ -131,6 +131,7 @@ export default {
                           value: this.form.begetPassword,
                           label: this.$t('labels.password'),
                           dense: true,
+                          type: this.showBegetPassword ? 'text' : 'password',
 
                           rules: [
                             val => (!!val || this.$t('errors.validation.required'))
@@ -142,7 +143,29 @@ export default {
                         on: {
                           input: val => (this.form.begetPassword = val)
                         }
-                      }
+                      },
+                      [
+                        h(
+                          'QBtn',
+                          {
+                            class: 'q-mt-xs',
+
+                            props: {
+                              icon: this.showBegetPassword ? 'las la-eye-slash' : 'las la-eye',
+                              round: true,
+                              dense: true,
+                              flat: true,
+                              size: 'sm'
+                            },
+
+                            on: {
+                              click: () => (this.showBegetPassword = !this.showBegetPassword)
+                            },
+
+                            slot: 'append'
+                          }
+                        )
+                      ]
                     )
                   ]
                 )
@@ -267,6 +290,7 @@ export default {
                           value: this.form.ispManagerPassword,
                           label: this.$t('labels.password'),
                           dense: true,
+                          type: this.showIpsPassword ? 'text' : 'password',
 
                           rules: [
                             val => (!!val || this.$t('errors.validation.required'))
@@ -278,7 +302,29 @@ export default {
                         on: {
                           input: val => (this.form.ispManagerPassword = val)
                         }
-                      }
+                      },
+                      [
+                        h(
+                          'QBtn',
+                          {
+                            class: 'q-mt-xs',
+
+                            props: {
+                              icon: this.showIpsPassword ? 'las la-eye-slash' : 'las la-eye',
+                              round: true,
+                              dense: true,
+                              flat: true,
+                              size: 'sm'
+                            },
+
+                            on: {
+                              click: () => (this.showIpsPassword = !this.showIpsPassword)
+                            },
+
+                            slot: 'append'
+                          }
+                        )
+                      ]
                     )
                   ]
                 )
