@@ -1,0 +1,9 @@
+{
+  "apiKey": "AIzaSyBSdhH3k59XjxEMtoHnBQal8zxgasYvObE",
+  "authDomain": "domains-import.firebaseapp.com",
+  "databaseURL": "https://domains-import.firebaseio.com",
+  "projectId": "domains-import",
+  "storageBucket": "domains-import.appspot.com",
+  "messagingSenderId": "284171634356",
+  "appId": "1:284171634356:web:c92a1f70b1952dfad479e1"
+}
