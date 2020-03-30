@@ -1,4 +1,5 @@
 {
+  "clientId": "Client ID",
   "domainURL": "URL (IP)",
   "login": "Login",
   "options": {

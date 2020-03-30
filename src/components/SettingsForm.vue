@@ -1,19 +1,15 @@
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'SettingsForm',
-
-  props: {
-    data: {
-      type: Object,
-      default: () => ({})
-    }
-  },
 
   data () {
     return {
       form: {
         begetLogin: '',
         begetPassword: '',
+        stackpathId: '',
         stackpathToken: '',
         ispManagerURL: '',
         ispManagerLogin: '',
@@ -26,8 +22,20 @@ export default {
     }
   },
 
-  mounted () {
-    this.presetFormFields()
+  computed: {
+    ...mapGetters({
+      settings: 'settings/getSettings'
+    })
+  },
+
+  created () {
+    this.$store.dispatch('settings/bind')
+  },
+
+  watch: {
+    settings (data) {
+      this.setFormFields(data)
+    }
   },
 
   methods: {
@@ -55,9 +63,11 @@ export default {
       }
     },
 
-    presetFormFields () {
-      Object.keys(this.data).length && this.form.forEach((field) => {
-        if (this.data[field]) this.form[field] = this.data[field]
+    setFormFields (data) {
+      const fields = Object.keys(this.form)
+
+      Object.keys(data).length && fields.forEach((field) => {
+        if (data[field]) this.form[field] = data[field]
       })
     }
   },
@@ -194,6 +204,27 @@ export default {
                 h(
                   'QItemSection',
                   [
+                    h(
+                      'QInput',
+                      {
+                        props: {
+                          value: this.form.stackpathId,
+                          label: this.$t('labels.clientId'),
+                          dense: true,
+
+                          rules: [
+                            val => (!!val || this.$t('errors.validation.required'))
+                          ],
+
+                          lazyRules: true
+                        },
+
+                        on: {
+                          input: val => (this.form.stackpathId = val)
+                        }
+                      }
+                    ),
+
                     h(
                       'QInput',
                       {

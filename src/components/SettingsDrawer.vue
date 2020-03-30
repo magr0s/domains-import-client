@@ -1,5 +1,4 @@
 <script>
-import { mapGetters } from 'vuex'
 import SettingsForm from './SettingsForm'
 
 export default {
@@ -18,15 +17,7 @@ export default {
       set (value) {
         return this.$store.dispatch('app/setSettingsDrawer', value)
       }
-    },
-
-    ...mapGetters({
-      settings: 'settings/getSettings'
-    })
-  },
-
-  created () {
-    this.$store.dispatch('settings/bind')
+    }
   },
 
   render (h) {
