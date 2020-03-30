@@ -347,9 +347,17 @@ export default {
                 props: {
                   label: this.$t('labels.save'),
                   type: 'submit',
-                  unelevated: true
+                  unelevated: true,
+                  loading: this.pending,
+                  disable: this.pending
                 }
-              }
+              },
+              [
+                h(
+                  'QSpinnerDots',
+                  { slot: 'loading' }
+                )
+              ]
             )
           ]
         )
