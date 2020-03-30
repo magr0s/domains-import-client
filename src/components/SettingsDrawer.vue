@@ -38,7 +38,20 @@ export default {
       [
         h(
           'QToolbar',
+          {
+            class: 'bg-teal-4 text-white'
+          },
           [
+            h(
+              'QIcon',
+              {
+                props: {
+                  name: 'las la-cog',
+                  size: 'sm'
+                }
+              }
+            ),
+
             h(
               'QToolbarTitle',
               {
@@ -57,6 +70,10 @@ export default {
                   round: true,
                   flat: true,
                   dense: true
+                },
+
+                on: {
+                  click: () => (this.drawer = false)
                 }
               },
               [
