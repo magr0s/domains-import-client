@@ -1,0 +1,8 @@
+{
+  "importFinished": "Domains import finished",
+  "importStarted": "Domains import started",
+
+  "settings": {
+    "save": "Settings saved"
+  }
+}

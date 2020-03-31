@@ -1,4 +1,8 @@
 {
+  "back": "Back",
+  "clear": "Clear",
   "close": "Close",
+  "download": "Download",
+  "paste": "Paste",
   "settings": "Settings"
 }

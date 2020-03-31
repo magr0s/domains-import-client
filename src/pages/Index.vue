@@ -1,14 +1,34 @@
-<template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-full.svg"
-    >
-  </q-page>
-</template>
-
 <script>
+import DomainsImport from 'components/DomainsImport'
+
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+
+  components: {
+    DomainsImport
+  },
+
+  methods: {
+    pageTweak (offset, height) {
+      return { height: `${height - offset}px` }
+    }
+  },
+
+  render (h) {
+    return h(
+      'QPage',
+      {
+        class: 'flex flex-center',
+
+        props: {
+          padding: true,
+          styleFn: this.pageTweak
+        }
+      },
+      [
+        h('DomainsImport')
+      ]
+    )
+  }
 }
 </script>

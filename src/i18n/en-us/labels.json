@@ -1,6 +1,7 @@
 {
   "clientId": "Client ID",
   "domainURL": "URL (IP)",
+  "domainsList": "Domains list",
   "login": "Login",
   "options": {
     "beget": "Beget options",
@@ -10,5 +11,6 @@
   "password": "Password",
   "save": "Save",
   "settings": "Settings",
+  "start": "Start",
   "token": "Token"
 }

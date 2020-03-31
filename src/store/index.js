@@ -4,6 +4,8 @@ import { vuexfireMutations } from 'vuexfire'
 
 import app from './app'
 import settings from './settings'
+import domains from './domains'
+
 Vue.use(Vuex)
 
 /*
@@ -19,7 +21,8 @@ export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
       app,
-      settings
+      settings,
+      domains
     },
 
     // enable strict mode (adds overhead!)

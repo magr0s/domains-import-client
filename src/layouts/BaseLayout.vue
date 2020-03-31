@@ -13,6 +13,8 @@ export default {
     return h(
       'QLayout',
       {
+        class: 'bg-blue-grey-1',
+
         props: {
           view: this.view
         }

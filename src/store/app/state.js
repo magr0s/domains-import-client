@@ -1,5 +1,6 @@
 export default function () {
   return {
-    settingsDrawer: false
+    settingsDrawer: false,
+    process: 'waiting'
   }
 }

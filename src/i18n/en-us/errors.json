@@ -1,4 +1,6 @@
 {
+  "domains-not-parsed": "Domains not parsed",
+
   "validation": {
     "required": "Required field"
   }

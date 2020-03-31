@@ -1,4 +1,6 @@
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'PageFooter',
 
@@ -11,7 +13,11 @@ export default {
       set (value) {
         this.$store.dispatch('app/setSettingsDrawer', value)
       }
-    }
+    },
+
+    ...mapGetters({
+      isImportProcess: 'app/isImportProcess'
+    })
   },
 
   render (h) {
@@ -39,7 +45,8 @@ export default {
                 props: {
                   icon: 'las la-cog',
                   round: true,
-                  flat: true
+                  flat: true,
+                  disable: this.isImportProcess
                 },
 
                 on: {
