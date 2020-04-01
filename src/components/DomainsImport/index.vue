@@ -1,4 +1,5 @@
 <script>
+import { mapGetters } from 'vuex'
 import ImportPanel from './ImportPanel'
 import ResultPanel from './ResultPanel'
 
@@ -25,7 +26,11 @@ export default {
       get () {
         return this.$store.getters['domains/getList']
       }
-    }
+    },
+
+    ...mapGetters({
+      settings: 'settings/getSettings'
+    })
   },
 
   methods: {
@@ -45,8 +50,9 @@ export default {
         await promise
 
         const { name } = domain
+        const { id: settingsId } = this.settings
 
-        return this.$store.dispatch('domains/importDomain', { name })
+        return this.$store.dispatch('domains/importDomain', { name, settingsId })
           .then(() => (this.$store.dispatch('domains/updateDomain', { ...domain, status: 'ok' })))
           .catch(() => (this.$store.dispatch('domains/updateDomain', { ...domain, status: 'fail' })))
       }, Promise.resolve())
