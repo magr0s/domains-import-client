@@ -277,7 +277,7 @@ export default {
                       'QInput',
                       {
                         props: {
-                          value: this.form.stackpathToken,
+                          value: this.form.stackpathSecret,
                           label: this.$t('labels.token'),
                           dense: true,
 
@@ -289,7 +289,7 @@ export default {
                         },
 
                         on: {
-                          input: val => (this.form.stackpathToken = val)
+                          input: val => (this.form.stackpathSecret = val)
                         }
                       }
                     )
