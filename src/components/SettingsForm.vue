@@ -43,7 +43,7 @@ export default {
     async onSubmit () {
       this.pending = true
 
-      const { id = null } = this.data
+      const { id = null } = this.settings
 
       try {
         await this.$store.dispatch('settings/save', { id, body: this.form })
