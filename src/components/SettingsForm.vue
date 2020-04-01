@@ -7,10 +7,11 @@ export default {
   data () {
     return {
       form: {
+        serverIP: '',
         begetLogin: '',
         begetPassword: '',
         stackpathId: '',
-        stackpathToken: '',
+        stackpathSecret: '',
         ispManagerURL: '',
         ispManagerLogin: '',
         ispManagerPassword: ''
@@ -91,6 +92,53 @@ export default {
         h(
           'QList',
           [
+            h(
+              'QItemLabel',
+              {
+                class: 'q-pt-sm q-pb-xs text-weight-light text-primary text-caption',
+                style: 'border-bottom: 1px solid #eee',
+
+                props: {
+                  header: true
+                }
+              },
+              this.$t('labels.options.server')
+            ),
+
+            h(
+              'QItem',
+              {
+                class: 'q-py-xs'
+              },
+              [
+                h(
+                  'QItemSection',
+                  [
+                    h(
+                      'QInput',
+                      {
+                        props: {
+                          value: this.form.serverIP,
+                          label: this.$t('labels.serverIP'),
+                          dense: true,
+
+                          rules: [
+                            val => (!!val || this.$t('errors.validation.required'))
+                          ],
+
+                          lazyRules: true
+                        },
+
+                        on: {
+                          input: val => (this.form.serverIP = val)
+                        }
+                      }
+                    )
+                  ]
+                )
+              ]
+            ),
+
             h(
               'QItemLabel',
               {

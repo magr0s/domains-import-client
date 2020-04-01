@@ -6,10 +6,12 @@
   "options": {
     "beget": "Beget options",
     "ispManager": "ISP Manager options",
+    "server": "Server options",
     "stackpath": "Stackpath options"
   },
   "password": "Password",
   "save": "Save",
+  "serverIP": "Server IP",
   "settings": "Settings",
   "start": "Start",
   "token": "Token"
