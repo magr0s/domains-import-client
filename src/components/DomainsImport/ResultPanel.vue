@@ -32,18 +32,24 @@ export default {
       ]
     },
 
-    progress () {
-      const isComplite = this.domainsList.filter(({ status }) => (status !== 'pending')).length
-      const total = this.domainsList.length
+    complited () {
+      return this.domainsList.filter(({ status }) => (status !== 'pending'))
+    },
 
-      return isComplite / total
+    progress () {
+      return this.complited.length / this.domainsList.length
     },
 
     progressLabel () {
-      const isComplite = this.domainsList.filter(({ status }) => (status !== 'pending')).length
-      const total = this.domainsList.length
+      return `${this.complited.length} / ${this.domainsList.length}`
+    },
 
-      return `${isComplite} / ${total}`
+    failure () {
+      return this.domainsList.filter(({ status }) => (status === 'fail'))
+    },
+
+    success () {
+      return this.domainsList.filter(({ status }) => (status === 'ok'))
     },
 
     ...mapGetters({
@@ -159,16 +165,44 @@ export default {
                 h(
                   'div',
                   {
-                    class: 'absolute-full flex flex-center'
+                    class: 'absolute-full flex flex-center justify-between z-top'
                   },
                   [
                     h(
                       'QBadge',
                       {
+                        class: 'on-right q-px-md',
+
+                        props: {
+                          label: this.success.length,
+                          color: 'positive',
+                          textColor: 'white'
+                        }
+                      }
+                    ),
+
+                    h(
+                      'QBadge',
+                      {
+                        class: 'q-px-md',
+
                         props: {
                           label: this.progressLabel,
                           color: 'grey-1',
                           textColor: 'dark'
+                        }
+                      }
+                    ),
+
+                    h(
+                      'QBadge',
+                      {
+                        class: 'on-left q-px-md',
+
+                        props: {
+                          label: this.failure.length,
+                          color: 'negative',
+                          textColor: 'white'
                         }
                       }
                     )
