@@ -2,6 +2,7 @@
   "clientId": "Client ID",
   "domainURL": "URL (IP)",
   "domainsList": "Domains list",
+  "email": "Email",
   "login": "Login",
   "options": {
     "beget": "Beget options",
@@ -13,6 +14,7 @@
   "save": "Save",
   "serverIP": "Server IP",
   "settings": "Settings",
+  "signIn": "Sign In",
   "start": "Start",
   "token": "Token"
 }

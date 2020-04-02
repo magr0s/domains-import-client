@@ -20,6 +20,13 @@ export default {
     })
   },
 
+  methods: {
+    async signOut () {
+      await this.$store.dispatch('auth/signOut')
+        .then(() => (this.$router.push('/auth')))
+    }
+  },
+
   render (h) {
     return h(
       'QFooter',
@@ -57,6 +64,28 @@ export default {
                 h(
                   'QTooltip',
                   this.$t('tooltips.settings')
+                )
+              ]
+            ),
+
+            h(
+              'QBtn',
+              {
+                props: {
+                  icon: 'las la-power-off',
+                  round: true,
+                  flat: true,
+                  disable: this.isImportProcess
+                },
+
+                on: {
+                  click: this.signOut
+                }
+              },
+              [
+                h(
+                  'QTooltip',
+                  this.$t('tooltips.signOut')
                 )
               ]
             )

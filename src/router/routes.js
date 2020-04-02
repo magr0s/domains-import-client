@@ -5,7 +5,21 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') }
-    ]
+    ],
+    meta: {
+      loggedOnly: true
+    }
+  },
+
+  {
+    path: '/auth',
+    component: () => import('layouts/BaseLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Auth.vue') }
+    ],
+    meta: {
+      anonymousOnly: true
+    }
   }
 ]
 

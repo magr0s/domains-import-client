@@ -1,7 +1,17 @@
 {
+  "auth/account-exists-with-different-credential": "Account already exists",
+  "auth/email-already-in-use": "Email already exists",
+  "auth/invalid-email": "Invalid email address",
+  "auth/invalid-verification-id": "Invalid verification",
+  "auth/user-disabled": "User is disabled",
+  "auth/user-not-found": "User not found",
+  "auth/weak-password": "Weak password",
+  "auth/wrong-password": "Invalid password",
+
   "domains-not-parsed": "Domains not parsed",
 
   "validation": {
-    "required": "Required field"
+    "required": "Required field",
+    "signature": "Incorrect email"
   }
 }

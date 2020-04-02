@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import { vuexfireMutations } from 'vuexfire'
 
 import app from './app'
+import auth from './auth'
 import settings from './settings'
 import domains from './domains'
 
@@ -22,7 +23,8 @@ export default function (/* { ssrContext } */) {
     modules: {
       app,
       settings,
-      domains
+      domains,
+      auth
     },
 
     // enable strict mode (adds overhead!)

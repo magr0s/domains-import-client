@@ -14,7 +14,7 @@ Vue.use(VueRouter)
  * with the Router instance.
  */
 
-export default function (/* { store, ssrContext } */) {
+export default function ({ store }) {
   const Router = new VueRouter({
     scrollBehavior: () => ({ x: 0, y: 0 }),
     routes,
@@ -24,6 +24,18 @@ export default function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     mode: process.env.VUE_ROUTER_MODE,
     base: process.env.VUE_ROUTER_BASE
+  })
+
+  Router.beforeEach(async (to, from, next) => {
+    const check = await store.dispatch('auth/checkAuthenticity')
+
+    if (to.matched.some(record => (record.meta.loggedOnly))) {
+      !check && next('/auth')
+    } else if (to.matched.some(record => (record.meta.anonymousOnly))) {
+      check && next('/')
+    }
+
+    next()
   })
 
   return Router
