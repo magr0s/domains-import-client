@@ -1,5 +1,7 @@
 const SET_USER = (state, { user, token }) => {
-  state.user = user
+  const { uid, displayName, email } = user
+
+  state.user = { uid, displayName, email }
   state.token = token
 }
 
