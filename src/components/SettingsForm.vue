@@ -10,6 +10,7 @@ export default {
         serverIP: '',
         begetLogin: '',
         begetPassword: '',
+        dreamhostToken: '',
         stackpathId: '',
         stackpathSecret: '',
         ispManagerURL: '',
@@ -131,6 +132,53 @@ export default {
 
                         on: {
                           input: val => (this.form.serverIP = val)
+                        }
+                      }
+                    )
+                  ]
+                )
+              ]
+            ),
+
+            h(
+              'QItemLabel',
+              {
+                class: 'q-pt-sm q-pb-xs text-weight-light text-primary text-caption',
+                style: 'border-bottom: 1px solid #eee',
+
+                props: {
+                  header: true
+                }
+              },
+              this.$t('labels.options.dreamhost')
+            ),
+
+            h(
+              'QItem',
+              {
+                class: 'q-py-xs'
+              },
+              [
+                h(
+                  'QItemSection',
+                  [
+                    h(
+                      'QInput',
+                      {
+                        props: {
+                          value: this.form.dreamhostToken,
+                          label: this.$t('labels.token'),
+                          dense: true,
+
+                          rules: [
+                            val => (!!val || this.$t('errors.validation.required'))
+                          ],
+
+                          lazyRules: true
+                        },
+
+                        on: {
+                          input: val => (this.form.dreamhostToken = val)
                         }
                       }
                     )
@@ -415,7 +463,7 @@ export default {
         h(
           'div',
           {
-            class: 'q-mt-xs q-px-sm'
+            class: 'q-mt-xs q-px-sm q-mb-md'
           },
           [
             h(

@@ -6,6 +6,7 @@
   "login": "Login",
   "options": {
     "beget": "Beget options",
+    "dreamhost": "Dreamhost options",
     "ispManager": "ISP Manager options",
     "server": "Server options",
     "stackpath": "Stackpath options"
