@@ -1,12 +1,26 @@
 <script>
+import APP_CONFIG from 'src/configs/app'
+
+const { HOSTERS } = APP_CONFIG
+
 export default {
   name: 'ImportForm',
 
   data () {
     return {
       form: {
-        domains: ''
+        domains: '',
+        hoster: ''
       }
+    }
+  },
+
+  computed: {
+    hosters () {
+      return HOSTERS.map(value => ({
+        label: this.$t(`labels.hosters.${value}`),
+        value
+      }))
     }
   },
 
@@ -52,7 +66,12 @@ export default {
           throw new Error(`${this.$t('errors.domains-not-parsed')}`)
         }
 
-        this.$emit('import:start', list)
+        const params = {
+          hoster: this.form.hoster,
+          domains: list
+        }
+
+        this.$emit('import:start', params)
       } catch ({ message }) {
         this.$q.notify({
           type: 'negative',
@@ -131,10 +150,37 @@ export default {
         ),
 
         h(
+          'QSelect',
+          {
+            props: {
+              value: this.form.hoster,
+              options: this.hosters,
+              label: this.$t('labels.selectHoster'),
+              dense: true,
+              optionsDense: true,
+              emitValue: true,
+              mapOptions: true,
+
+              rules: [
+                val => (!!val || this.$t('errors.validation.required'))
+              ],
+
+              lazyRules: true
+            },
+
+            on: {
+              input: val => (this.form.hoster = val)
+            }
+          }
+        ),
+
+        h(
           'QInput',
           {
+            class: 'q-mt-xs',
+
             style: {
-              height: 'calc(100% - 28px - 68px)'
+              height: 'calc(100% - 88px - 68px)'
             },
 
             attrs: {

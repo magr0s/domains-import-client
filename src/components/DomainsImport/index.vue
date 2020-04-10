@@ -34,9 +34,9 @@ export default {
   },
 
   methods: {
-    async import (list) {
+    async import ({ hoster, domains }) {
       this.panel = 'result'
-      this.domainsList = list
+      this.domainsList = domains
 
       await this.$store.dispatch('app/setProcess', 'importing')
 
@@ -52,7 +52,11 @@ export default {
         const { name } = domain
         const { id: settingsId } = this.settings
 
-        return this.$store.dispatch('domains/importDomain', { name, settingsId })
+        return this.$store.dispatch('domains/importDomain', {
+          name,
+          hoster,
+          settingsId
+        })
           .then(() => (this.$store.dispatch('domains/updateDomain', { ...domain, status: 'ok' })))
           .catch(() => (this.$store.dispatch('domains/updateDomain', { ...domain, status: 'fail' })))
       }, Promise.resolve())

@@ -1,18 +1,29 @@
 {
   "clientId": "Client ID",
   "domainURL": "URL (IP)",
+  "proxyURL": "URL",
   "domainsList": "Domains list",
   "email": "Email",
+
+  "hosters": {
+    "beget": "Beget",
+    "dreamhost": "Dreamhost"
+  },
+
   "login": "Login",
+
   "options": {
     "beget": "Beget options",
     "dreamhost": "Dreamhost options",
     "ispManager": "ISP Manager options",
     "server": "Server options",
-    "stackpath": "Stackpath options"
+    "stackpath": "Stackpath options",
+    "proxy": "Proxy options"
   },
+
   "password": "Password",
   "save": "Save",
+  "selectHoster": "Select hoster",
   "serverIP": "Server IP",
   "settings": "Settings",
   "signIn": "Sign In",

@@ -10,17 +10,23 @@ export default {
         serverIP: '',
         begetLogin: '',
         begetPassword: '',
-        dreamhostToken: '',
+        dreamhostLogin: '',
+        dreamhostPassword: '',
         stackpathId: '',
         stackpathSecret: '',
         ispManagerURL: '',
         ispManagerLogin: '',
-        ispManagerPassword: ''
+        ispManagerPassword: '',
+        proxyLogin: '',
+        proxyPassword: '',
+        proxyURL: ''
       },
 
       pending: false,
       showBegetPassword: false,
-      showIpsPassword: false
+      showDreamhostPassword: false,
+      showIpsPassword: false,
+      showProxyPassword: false
     }
   },
 
@@ -166,8 +172,8 @@ export default {
                       'QInput',
                       {
                         props: {
-                          value: this.form.dreamhostToken,
-                          label: this.$t('labels.token'),
+                          value: this.form.dreamhostLogin,
+                          label: this.$t('labels.login'),
                           dense: true,
 
                           rules: [
@@ -178,9 +184,53 @@ export default {
                         },
 
                         on: {
-                          input: val => (this.form.dreamhostToken = val)
+                          input: val => (this.form.dreamhostLogin = val)
                         }
                       }
+                    ),
+
+                    h(
+                      'QInput',
+                      {
+                        props: {
+                          value: this.form.dreamhostPassword,
+                          label: this.$t('labels.password'),
+                          dense: true,
+                          type: this.showDreamhostPassword ? 'text' : 'password',
+
+                          rules: [
+                            val => (!!val || this.$t('errors.validation.required'))
+                          ],
+
+                          lazyRules: true
+                        },
+
+                        on: {
+                          input: val => (this.form.dreamhostPassword = val)
+                        }
+                      },
+                      [
+                        h(
+                          'QBtn',
+                          {
+                            class: 'q-mt-xs',
+
+                            props: {
+                              icon: this.showDreamhostPassword ? 'las la-eye-slash' : 'las la-eye',
+                              round: true,
+                              dense: true,
+                              flat: true,
+                              size: 'sm'
+                            },
+
+                            on: {
+                              click: () => (this.showDreamhostPassword = !this.showDreamhostPassword)
+                            },
+
+                            slot: 'append'
+                          }
+                        )
+                      ]
                     )
                   ]
                 )
@@ -446,6 +496,118 @@ export default {
 
                             on: {
                               click: () => (this.showIpsPassword = !this.showIpsPassword)
+                            },
+
+                            slot: 'append'
+                          }
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            ),
+
+            h(
+              'QItemLabel',
+              {
+                class: 'q-pt-sm q-pb-xs text-weight-light text-primary text-caption',
+                style: 'border-bottom: 1px solid #eee',
+
+                props: {
+                  header: true
+                }
+              },
+              this.$t('labels.options.proxy')
+            ),
+
+            h(
+              'QItem',
+              {
+                class: 'q-py-xs'
+              },
+              [
+                h(
+                  'QItemSection',
+                  [
+                    h(
+                      'QInput',
+                      {
+                        props: {
+                          value: this.form.proxyURL,
+                          label: this.$t('labels.proxyURL'),
+                          dense: true,
+
+                          rules: [
+                            val => (!!val || this.$t('errors.validation.required'))
+                          ],
+
+                          lazyRules: true
+                        },
+
+                        on: {
+                          input: val => (this.form.proxyURL = val)
+                        }
+                      }
+                    ),
+
+                    h(
+                      'QInput',
+                      {
+                        props: {
+                          value: this.form.proxyLogin,
+                          label: this.$t('labels.login'),
+                          dense: true,
+
+                          rules: [
+                            val => (!!val || this.$t('errors.validation.required'))
+                          ],
+
+                          lazyRules: true
+                        },
+
+                        on: {
+                          input: val => (this.form.proxyLogin = val)
+                        }
+                      }
+                    ),
+
+                    h(
+                      'QInput',
+                      {
+                        props: {
+                          value: this.form.proxyPassword,
+                          label: this.$t('labels.password'),
+                          dense: true,
+                          type: this.showProxyPassword ? 'text' : 'password',
+
+                          rules: [
+                            val => (!!val || this.$t('errors.validation.required'))
+                          ],
+
+                          lazyRules: true
+                        },
+
+                        on: {
+                          input: val => (this.form.proxyPassword = val)
+                        }
+                      },
+                      [
+                        h(
+                          'QBtn',
+                          {
+                            class: 'q-mt-xs',
+
+                            props: {
+                              icon: this.showProxyPassword ? 'las la-eye-slash' : 'las la-eye',
+                              round: true,
+                              dense: true,
+                              flat: true,
+                              size: 'sm'
+                            },
+
+                            on: {
+                              click: () => (this.showProxyPassword = !this.showIpsPassword)
                             },
 
                             slot: 'append'
