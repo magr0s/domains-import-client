@@ -554,16 +554,12 @@ export default {
                     h(
                       'QInput',
                       {
+                        class: 'q-mb-md',
+
                         props: {
                           value: this.form.proxyLogin,
                           label: this.$t('labels.login'),
-                          dense: true,
-
-                          rules: [
-                            val => (!!val || this.$t('errors.validation.required'))
-                          ],
-
-                          lazyRules: true
+                          dense: true
                         },
 
                         on: {
@@ -575,17 +571,13 @@ export default {
                     h(
                       'QInput',
                       {
+                        class: 'q-mb-md',
+
                         props: {
                           value: this.form.proxyPassword,
                           label: this.$t('labels.password'),
                           dense: true,
-                          type: this.showProxyPassword ? 'text' : 'password',
-
-                          rules: [
-                            val => (!!val || this.$t('errors.validation.required'))
-                          ],
-
-                          lazyRules: true
+                          type: this.showProxyPassword ? 'text' : 'password'
                         },
 
                         on: {
